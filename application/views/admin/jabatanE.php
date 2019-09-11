@@ -10,7 +10,7 @@
         <div class="page">
             <div class="page-single">
                 <!--<?php
-                //$this->load->view('Admin/nav');
+                //$this->load->view('admin/nav');
                 ?>-->
                 <div class="container text-center">
                     <div class="row">

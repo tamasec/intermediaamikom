@@ -10,7 +10,7 @@
         <div class="page">
             <div class="page-main">
                 <?php
-                $this->load->view('Admin/nav');
+                $this->load->view('admin/nav');
                 ?>
                 <div class="my-3 my-md-5">
                     <div class="container">
@@ -53,7 +53,7 @@
                                                             <?php
                                                             if ($jabatan->nama_jabatan == 'Koordinator') {
                                                                 ?>
-                                                                <a class="btn btn-primary" href="<?= base_url('Admin/Dashboard/editAdmin/' . $ad['idAnggota']) ?>">
+                                                                <a class="btn btn-primary" href="<?= base_url('admin/Dashboard/editadmin/' . $ad['idAnggota']) ?>">
                                                                     <i class="fe fe-edit"></i> Edit</a>
                                                                 <a class="btn btn-danger" href="#" data-toggle="modal" data-target="#modal<?php echo $ad['idAnggota']; ?>">
                                                                     <i class="fe fe-delete"></i> Delete</a>
@@ -66,7 +66,7 @@
                                                                                     <span aria-hidden="true"></span>
                                                                                 </button>
                                                                             </div>
-                                                                            <form action="<?= base_url('Admin/Dashboard/deleteAdmin/' . $ad['idAnggota']) ?>" method="post">
+                                                                            <form action="<?= base_url('admin/Dashboard/deleteadmin/' . $ad['idAnggota']) ?>" method="post">
                                                                                 <div class="modal-body">
                                                                                     <span>Apa anda yakin ingin menghapus data <?= $ad['idAnggota'] ?>?</span>
                                                                                 </div>
@@ -192,7 +192,7 @@
                 </div>
             </div>
             <?php
-            $this->load->view('Admin/footer');
+            $this->load->view('admin/footer');
             ?>
         </div>
     </body>

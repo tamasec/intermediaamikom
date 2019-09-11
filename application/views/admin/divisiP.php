@@ -10,7 +10,7 @@
         <div class="page">
             <div class="page-main">
                 <?php
-                $this->load->view('Admin/nav');
+                $this->load->view('admin/nav');
                 ?>
                 <div class="my-3 my-md-5">
                     <div class="container">
@@ -47,9 +47,9 @@
                                                     <td><?= $ad['nama_lengkap'] ?></td>
                                                     <td><?= $ad['email'] ?></td>
                                                     <td>
-                                                        <a class="btn btn-primary" href="<?= base_url('Admin/Dashboard/editEvent/'.$ad['idDivisi']) ?>">
+                                                        <a class="btn btn-primary" href="<?= base_url('admin/Dashboard/editEvent/'.$ad['idDivisi']) ?>">
                                                             <i class="fe fe-edit"></i> Edit</a>
-                                                            <a class="btn btn-danger" href="<?= base_url('Admin/Dashboard/deleteEvent/'.$ad['idDivisi']) ?>">
+                                                            <a class="btn btn-danger" href="<?= base_url('admin/Dashboard/deleteEvent/'.$ad['idDivisi']) ?>">
                                                             <i class="fe fe-delete"></i> Delete</a>
                                                     </td>
                                                 </tr>
@@ -67,7 +67,7 @@
                 </div>
             </div>
             <?php
-            $this->load->view('Admin/footer');
+            $this->load->view('admin/footer');
             ?>
         </div>
     </body>

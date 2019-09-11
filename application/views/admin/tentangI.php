@@ -10,7 +10,7 @@
         <div class="page">
             <div class="page-main">
                 <?php
-                $this->load->view('Admin/nav');
+                $this->load->view('admin/nav');
                 ?>
                 <div class="my-3 my-md-5">
                     <div class="container">
@@ -90,7 +90,7 @@
                 </div>
             </div>
             <?php
-            $this->load->view('Admin/footer');
+            $this->load->view('admin/footer');
             ?>
         </div>
     </body>

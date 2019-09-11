@@ -74,7 +74,7 @@
                 </div>
             </div>
             <?php
-            $this->load->view('Admin/footer');
+            $this->load->view('admin/footer');
             ?>
         </div>
 
