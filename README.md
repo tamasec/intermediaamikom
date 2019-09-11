@@ -1,0 +1,2 @@
+# intermediaamikom
+ Website intermediaamikom.org
