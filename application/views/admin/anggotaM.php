@@ -3,7 +3,7 @@
         <title>Dashboard - Anggota Intermedia</title>
         <link rel="icon" href="<?= base_url(); ?>assets/user/img/logo.png" type="image/x-icon"/>
         <?php
-        $this->load->view('Admin/header');
+        $this->load->view('admin/header');
         ?>
     </head>
     <body>
