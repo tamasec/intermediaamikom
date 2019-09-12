@@ -10,6 +10,7 @@ $route['achievement'] = 'User/MainController/achievement';
 $route['join'] = 'User/MainController/join';
 $route['daftar'] = 'User/PendaftaranController/index';
 $route['daftar/kirim'] = 'User/PendaftaranController/daftar';
+$route['daftar/success'] = 'User/PendaftaranController/sukses';
 $route['about'] = 'User/MainController/about';
 $route['team'] = 'User/MainController/team';
 $route['tartib'] = 'User/MainController/tartib';

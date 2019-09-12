@@ -290,17 +290,17 @@
                     <?php } ?>
                     <div class="wrap-input100 validate-input bg1">
                         <span class="label-input100">Nama Lengkap *</span>
-                        <input class="input100" type="text" name="nama" placeholder="Masukkan nama lengkap" required="required">
+                        <input class="input100" type="text" name="nama" placeholder="misal: Tarjo Romadhona" required="required">
                     </div>
 
                     <div class="wrap-input100 validate-input bg1 rs1-wrap-input100">
-                        <span class="label-input100">Email *</span>
-                        <input class="input100" type="text" name="email" placeholder="Email aktif"  required="required">
+                        <span class="label-input100">Email Aktif *</span>
+                        <input class="input100" type="text" name="email" placeholder="misal: john.doe@example.com"  required="required">
                     </div>
 
                     <div class="wrap-input100 validate-input bg1 rs1-wrap-input100">
-                        <span class="label-input100">Hp/Wa *</span>
-                        <input class="input100" type="text" name="phone" placeholder="Nomor Handphone aktif" required="required">
+                        <span class="label-input100">Nomor HP/WA Aktif *</span>
+                        <input class="input100" type="text" name="phone" placeholder="misal: 0821xxxxxxxx" required="required" maxlength="13">
                     </div>
                     <div class="wrap-input100  bg1 rs1-wrap-input100" >
                         <span class="label-input100">Tanggal Lahir *</span>
@@ -310,9 +310,8 @@
                         <span class="label-input100">Jenis Kelamin *</span>
                         <div>
                             <select class="js-select2" name="jk" required="required">
-                                <option>Pilih</option>
-                                <option>Laki - Laki</option>
-                                <option>Perempuan</option>
+                                <option value="Laki - Laki">Laki - Laki</option>
+                                <option value="Perempuan">Perempuan</option>
                             </select>
                             <div class="dropDownSelect2"></div>
                         </div>
@@ -355,22 +354,24 @@
 
                     <div class="wrap-input100 validate-input bg1 rs1-wrap-input100">
                         <span class="label-input100">Foto (JPG, JPEG, PNG) *</span>
-                        <input type="file" name="foto" id="file-6" style="opacity:0;" class="inputfile inputfile-5" data-multiple-caption="{count} files selected" multiple accept="image/*"/>
-                        <label for="file-6"><figure><svg xmlns="http://www.w3.org/2000/svg" width="20" height="17" viewBox="0 0 20 17"><path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z"/></svg></figure> <span></span></label>
+                        <input type="file" name="foto" id="file-6" style="opacity:0;" class="inputfile inputfile-5" accept="image/*"/>
+                        <label for="file-6"><figure><svg xmlns="http://www.w3.org/2000/svg" width="20" height="17" viewBox="0 0 20 17"><path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z"/></svg></figure> <span name="fotonama"></span></label>
+                        
                     </div>
                     <div class="wrap-input100 validate-input bg1 rs1-wrap-input100">
                         <span class="label-input100">CV (PDF) *</span>
-                        <input type="file" name="cv" id="file-7" style="opacity:0;" class="inputfile inputfile-5" data-multiple-caption="{count} files selected" multiple accept="application/pdf"/>
-                        <label for="file-7"><figure><svg xmlns="http://www.w3.org/2000/svg" width="20" height="17" viewBox="0 0 20 17"><path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z"/></svg></figure> <span></span></label>
+                        <input type="file" name="cv" id="file-7" style="opacity:0;" class="inputfile inputfile-5" accept="application/pdf"/>
+                        <label for="file-7"><figure><svg xmlns="http://www.w3.org/2000/svg" width="20" height="17" viewBox="0 0 20 17"><path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z"/></svg></figure> <span name="cvnama"></span></label>
+                        
                     </div>
                     <div class="wrap-input100 validate-input bg1" data-validate="Mohon form nama diisi">
                         <span class="label-input100">Note *</span><br>
                         <h5>Foto harus formal dan maksimal ukuran 512 KB</h5>
                         <h5>CV maksimal ukuran 1 MB</h5><br>
                         <h5>Untuk Contoh CV dapat didownload di bawah</h5>
-
                         <a class="btn btn-success" href="<?= base_url(); ?>assets/user/images/cv.jpg" target="_blank">Download</a>
-
+                        <h5>Untuk informasi lebih lanjut, kamu bisa menghubungi:</h5>
+                        <h5><a class="btn btn-info" href="tel:+6285740470462">Dhandi: +62 857-4047-0462</a></h5>
                     </div>
 
                     <div class="container-contact100-form-btn">
@@ -406,7 +407,7 @@
 
                 $(".js-select2").each(function () {
                     $(this).on('select2:close', function (e) {
-                        if ($(this).val() == "Please chooses") {
+                        if ($(this).val() == "- Pilih -") {
                             $('.js-show-service').slideUp();
                         } else {
                             $('.js-show-service').slideUp();
@@ -423,29 +424,72 @@
              */
 
             'use strict';
-
-            ;
+            
             (function (document, window, index)
             {
+                $('input[name=nama]').on('keypress', function (event) {
+                    var regex = new RegExp("^[a-zA-Z\\s']+$");
+                    var key = String.fromCharCode(!event.charCode ? event.which : event.charCode);
+                    if (!regex.test(key)) {
+                    event.preventDefault();
+                    return false;
+                    }
+                });
+                $('input[name=phone]').on('keypress', function (event) {
+                    var regex = new RegExp("^[0-9]+$");
+                    var key = String.fromCharCode(!event.charCode ? event.which : event.charCode);
+                    if (!regex.test(key)) {
+                    event.preventDefault();
+                    return false;
+                    }
+                });
                 var inputs = document.querySelectorAll('.inputfile');
                 Array.prototype.forEach.call(inputs, function (input)
                 {
                     var label = input.nextElementSibling,
                             labelVal = label.innerHTML;
 
-                    input.addEventListener('change', function (e)
-                    {
-                        var fileName = '';
-                        if (this.files && this.files.length > 1)
-                            fileName = (this.getAttribute('data-multiple-caption') || '').replace('{count}', this.files.length);
-                        else
-                            fileName = e.target.value.split('\\').pop();
-
-                        if (fileName)
-                            label.querySelector('span').innerHTML = fileName;
-                        else
-                            label.innerHTML = labelVal;
+                    $("#file-6").change(function(e) {
+                        var fileExtension = ["jpg","jpeg","png"];
+                        if ($.inArray($(this).val().split(".").pop().toLowerCase(), fileExtension) == -1) {
+                            alert("Hanya format file berikut yang dapat diterima : " + fileExtension.join(", "));
+                        } else {
+                            var namafile = e.target.files[0].name;
+                            var ukurfile = e.target.files[0].size;
+                            if (ukurfile <= 0.512 * Math.pow(2, 20)) {
+                                $("span[name=fotonama]").html(namafile);
+                            } else {
+                                alert("Ukuran file tersebut terlalu besar. Batas maksimum ukuran file adalah 512 KB");
+                            }
+                        }
                     });
+                    $("#file-7").change(function(e) {
+                        var fileExtension = ["pdf"];
+                        if ($.inArray($(this).val().split(".").pop().toLowerCase(), fileExtension) == -1) {
+                            alert("Hanya format file berikut yang dapat diterima : " + fileExtension.join(", "));
+                        } else {
+                            var namafile = e.target.files[0].name;
+                            var ukurfile = e.target.files[0].size;
+                            if (ukurfile <= 1 * Math.pow(2, 20)) {
+                                $("span[name=cvnama]").html(namafile);
+                            } else {
+                                alert("Ukuran file tersebut terlalu besar. Batas maksimum ukuran file adalah 1 MB");
+                            }
+                        }
+                    });
+                    // input.addEventListener('change', function (e)
+                    // {
+                    //     var fileName = '';
+                    //     //if (this.files && this.files.length > 1)
+                    //     //    fileName = (this.getAttribute('data-multiple-caption') || '').replace('{count}', this.files.length);
+                    //     //else
+                    //         fileName = e.target.value.split('\\').pop();
+
+                    //     if (fileName)
+                    //         label.querySelector('span').innerHTML = fileName;
+                    //     else
+                    //         label.innerHTML = labelVal;
+                    // });
 
                     // Firefox bug fix
                     input.addEventListener('focus', function () {

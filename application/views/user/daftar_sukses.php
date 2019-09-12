@@ -24,11 +24,9 @@
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="text-center">
-                                            <h1 class="wow fadeInUp animated cd-headline slide" style="color: green;" data-wow-delay=".4s" >Selamat!<br>
-                                            Anda Sudah Terdaftar sebagai Calon Anggota Intermedia</h1>
-                                            <p class="wow fadeInUp animated" data-wow-delay=".9s">Untuk Info Selanjutnya akan kami infokan lewat media sosial dan website kami jadi tetep stay tune yah!</p>
-                                            
-
+                                            <h1 class="wow fadeInUp animated cd-headline slide" style="color: green;" data-wow-delay=".4s" >Selamat!</h1>
+                                            <h3 class="wow fadeInUp animated" data-wow-delay=".6s">Kamu sudah terdaftar sebagai Calon Anggota Intermedia :D</h3>
+                                            <p class="wow fadeInUp animated" data-wow-delay=".9s">Tunggu kabar terkait First Meet dari kami, ya!</p>
                                         </div>
                                     </div>
                                 </div>

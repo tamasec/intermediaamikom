@@ -201,8 +201,9 @@
                                     <ul>
                                         <li><p>Yoga Willy Utomo</p></li>
                                         <li><p>Faiz Ichsan Jaya</p></li>
-                                        <li><p>Trian damai</p></li>
-                                        <li><p>Zaenur rochman</p></li>
+                                        <li><p>Trian Damai</p></li>
+                                        <li><p>Zaenurrochman</p></li>
+                                        <li><p>Dwi Candra Permana</p></li>
                                     </ul>
                                 </div>
                                 <div class="col-md-4 text-left">

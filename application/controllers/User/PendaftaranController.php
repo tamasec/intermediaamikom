@@ -1,5 +1,5 @@
 <?php
-
+defined('BASEPATH') OR exit('No direct script access allowed');
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -28,12 +28,19 @@ class PendaftaranController extends CI_Controller {
         if (($getDiffAwal > 0) && ($getDiffAkhir <= 0)) {
             redirect('join','refresh');
         } else if (($getDiffAwal <= 0) && ($getDiffAkhir <= 0)) {
-            $data['listD'] = $this->DataModel->readLimit('divisi', '*', '3')->result_array();
-            $data['listJ'] = $this->DataModel->readLimit('jurusan', '*', '2')->result_array();
+            $data['listD'] = $this->DataModel->read('divisi', '*')->result_array();
+            $data['listJ'] = $this->DataModel->read('jurusan', '*')->result_array();
             $this->load->view('user/Form_Join', $data);
         } else if ($getDiffAkhir > 0) {
             redirect('join','refresh');
         }
+    }
+
+    function sukses() {
+        if ($this->session->tempdata('ok') == "true")
+            $this->load->view('user/daftar_sukses');
+        else 
+            redirect('join');
     }
 
     function daftar() {
@@ -72,6 +79,32 @@ class PendaftaranController extends CI_Controller {
             $this->session->set_tempdata('pesan',$message,30);
             redirect('daftar');
         } else {
+            $this->db->select('email');
+            $this->db->from('pendaftaran');
+            $this->db->where('email', $email);
+            $result = $this->db->get();
+            $rNum = $result->num_rows();
+            $result->free_result();
+
+            if ($rNum > 0) {
+                $this->session->set_tempdata('pesan', "Email '" . $email . "' sudah pernah didaftarkan!",30);
+                redirect('daftar');
+                return;
+            }
+
+            $this->db->select('nohp');
+            $this->db->from('pendaftaran');
+            $this->db->where('nohp', $no);
+            $result2 = $this->db->get();
+            $rNum2 = $result2->num_rows();
+            $result2->free_result();
+
+            if ($rNum2 > 0) {
+                $this->session->set_tempdata('pesan', "Nomor HP/WA '" . $no . "' sudah pernah didaftarkan!",30);
+                redirect('daftar');
+                return;
+            }
+
             if (!empty($_FILES['foto']['name']) && !empty($_FILES['cv']['name'])) {
                 $file1 = substr(strrchr($_FILES['foto']['name'], '.'), 1);
                 $config['upload_path'] = 'assets/admin/uploads/pendaftar/images';
@@ -117,7 +150,8 @@ class PendaftaranController extends CI_Controller {
                 if ($query == FALSE) {
                     echo "Input data gagal";
                 } else {
-                    $this->load->view('user/daftar_sukses');
+                    $this->session->set_tempdata('ok', "true", 5);
+                    redirect("daftar/success");
 //                echo "berhasil cuuuy";
                 }
             } else {
