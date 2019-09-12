@@ -43,6 +43,12 @@
                           </a>
                       </li>
                       <li class="nav-item">
+                            <a class="nav-link" href="https://iitf.intermediaamikom.org" style="color: #888" rel="tooltip" title="Intermedia Information Technology Festival" data-placement="bottom" target="_parent">
+                                <i class="now-ui-icons objects_planet"></i>
+                                <p>IITF</p>
+                            </a>
+                        </li>
+                      <li class="nav-item">
                           <a class="nav-link" href="<?php echo base_url()?>about" style="color: #888" rel="tooltip" title="Tentang" data-placement="bottom" target="_parent" >
                               <i class="now-ui-icons travel_info"></i>
                               <p>Tentang</p>
