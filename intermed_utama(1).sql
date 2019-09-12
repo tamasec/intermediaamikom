@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 11 Sep 2019 pada 22.24
+-- Waktu pembuatan: 12 Sep 2019 pada 18.57
 -- Versi server: 10.1.37-MariaDB
 -- Versi PHP: 7.3.0
 
@@ -73,10 +73,8 @@ CREATE TABLE `anggota` (
 --
 
 INSERT INTO `anggota` (`idAnggota`, `noAnggota`, `nama_lengkap`, `nim`, `jk`, `ttl`, `alamat`, `angkatan`, `email`, `noHp`, `foto`) VALUES
-('MM002', '', 'xaxaxa', '', 'Perempuan', '', '', '', 'ada@dad.com', '', ''),
 ('PR001', '', 'ZaenurRochman', '16.11.0068', 'Laki - Laki', '1998-05-25', 'kalisari RT07 RW02', '2016', 'zaenur.rochman98@gmail.com', '081578988248', 'PR001_16.11.0068.png'),
-('PR002', '', 'rochman', '', 'Laki - Laki', '', '', '', 'rochman@zaenur.com', '', ''),
-('PR003', '', 'Trian Damai', '', 'Laki - Laki', '', '', '', 'triannurizkillah@gmail.com', '', '');
+('PR002', '', 'Dwi Candra Permana', '18.11.0004', 'Laki - Laki', '2000-05-09', 'Jl. Mandor Martinem Roy 1 No. 99 Desa Rejasari Kecamatan Langensari Kota Banjar, Jawa Barat 46344', '2018', 'dwichan@outlook.com', '082121824775', 'PR002_18.11.0004.jpg');
 
 -- --------------------------------------------------------
 
@@ -122,9 +120,7 @@ CREATE TABLE `detail_divisi` (
 
 INSERT INTO `detail_divisi` (`idDetail`, `idDivisi`, `idAnggota`, `keterangan`, `periode_mulai`, `periode_selesai`) VALUES
 (1, 1, 'PR001', 'testing', '2016/2017', '2017/2018'),
-(2, 2, 'PR002', '', '', ''),
-(3, 2, 'MM002', '', '', ''),
-(4, 1, 'PR003', '', '', '');
+(5, 1, 'PR002', '', '2018', '2019');
 
 -- --------------------------------------------------------
 
@@ -147,9 +143,7 @@ CREATE TABLE `detail_jabatan` (
 
 INSERT INTO `detail_jabatan` (`idDetail`, `idJabatan`, `idAnggota`, `keterangan`, `periode_mulai`, `periode_selesai`) VALUES
 (1, 1, 'PR001', 'testing', '2016/2017', '2017/2018'),
-(2, 5, 'PR002', '', '', ''),
-(3, 5, 'MM002', '', '', ''),
-(4, 1, 'PR003', '', '', '');
+(5, 1, 'PR002', '', '2018', '2019');
 
 -- --------------------------------------------------------
 
@@ -169,9 +163,8 @@ CREATE TABLE `detail_jurusan` (
 --
 
 INSERT INTO `detail_jurusan` (`idDetail`, `idJurusan`, `idAnggota`, `keterangan`) VALUES
-(1, 2, 'PR002', ''),
-(2, 2, 'MM002', ''),
-(3, 1, 'PR003', '');
+(4, 1, 'PR001', ''),
+(5, 1, 'PR002', '');
 
 -- --------------------------------------------------------
 
@@ -261,7 +254,11 @@ CREATE TABLE `jurusan` (
 
 INSERT INTO `jurusan` (`idJurusan`, `nama_jurusan`, `keterangan`) VALUES
 (1, 'Teknik Informatika', 'isine lanang cuk bangke'),
-(2, 'Sistem Informasi', 'jurusan management nang komputer isine akeh wadone hehe');
+(2, 'Sistem Informasi', 'jurusan management nang komputer isine akeh wadone hehe'),
+(3, 'Teknologi Informasi', 'Jurusan anyar cuy'),
+(4, 'Bisnis Digital', 'isine sing duit duit nang internet hehe'),
+(5, 'Ilmu Komunikasi', 'tutorial untuk berbicara dengan komputer wkkw'),
+(6, 'Bahasa Inggris', 'dadi turis dadakan wehehe');
 
 -- --------------------------------------------------------
 
@@ -372,8 +369,7 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`idUser`, `idAnggota`, `password`, `last_login`) VALUES
 ('Admin001', 'PR001', 'rochman25', '2018-08-20'),
-('user002', 'MM002', 'test', '0000-00-00'),
-('user003', 'PR003', 'astaghfirullah', '0000-00-00');
+('Admin002', 'PR002', 'Nuryah Afni 17', '0000-00-00');
 
 --
 -- Indexes for dumped tables
@@ -503,19 +499,19 @@ ALTER TABLE `berita`
 -- AUTO_INCREMENT untuk tabel `detail_divisi`
 --
 ALTER TABLE `detail_divisi`
-  MODIFY `idDetail` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `idDetail` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT untuk tabel `detail_jabatan`
 --
 ALTER TABLE `detail_jabatan`
-  MODIFY `idDetail` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `idDetail` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT untuk tabel `detail_jurusan`
 --
 ALTER TABLE `detail_jurusan`
-  MODIFY `idDetail` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `idDetail` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT untuk tabel `divisi`
@@ -539,7 +535,7 @@ ALTER TABLE `jabatan`
 -- AUTO_INCREMENT untuk tabel `jurusan`
 --
 ALTER TABLE `jurusan`
-  MODIFY `idJurusan` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `idJurusan` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT untuk tabel `mediapartner`
