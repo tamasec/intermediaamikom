@@ -88,6 +88,43 @@ class PendaftaranController extends CI_Controller {
             $this->session->set_tempdata('pesan',$message,5);
             redirect('daftar');
         } else {
+            //echo preg_match("/^[a-zA-Z\s']+$/", $nama);
+            //return;
+            // Verify
+            if (!preg_match("/^[a-zA-Z\s']+$/", $nama)) {
+                $message = "Kolom Nama Lengkap mengandung karakter yang tidak diizinkan!";
+                $this->session->set_tempdata('nama',$nama,60);
+                $this->session->set_tempdata('no',$no,60);
+                $this->session->set_tempdata('email',$email,60);
+                $this->session->set_tempdata('ttl',$ttl,60);
+                $this->session->set_tempdata('alamat',$alamat,60);
+                $this->session->set_tempdata('pesan',$message,5);
+                redirect('daftar');
+                return;
+            }
+            
+            if (!preg_match("/^[0-9]+$/", $no)) {
+                $message = "Kolom Nomor HP/WA mengandung karakter yang tidak diizinkan!";
+                $this->session->set_tempdata('nama',$nama,60);
+                $this->session->set_tempdata('no',$no,60);
+                $this->session->set_tempdata('email',$email,60);
+                $this->session->set_tempdata('ttl',$ttl,60);
+                $this->session->set_tempdata('alamat',$alamat,60);
+                $this->session->set_tempdata('pesan',$message,5);
+                redirect('daftar');
+                return;
+            }
+            if (!preg_match("/^[a-zA-Z\s'.0-9\/]+$/", $alamat)) {
+                $message = "Kolom Alamat mengandung karakter yang tidak diizinkan!";
+                $this->session->set_tempdata('nama',$nama,60);
+                $this->session->set_tempdata('no',$no,60);
+                $this->session->set_tempdata('email',$email,60);
+                $this->session->set_tempdata('ttl',$ttl,60);
+                $this->session->set_tempdata('alamat',$alamat,60);
+                $this->session->set_tempdata('pesan',$message,5);
+                redirect('daftar');
+                return;
+            }
             $this->db->select('email');
             $this->db->from('pendaftaran');
             $this->db->where('email', $email);
@@ -96,6 +133,11 @@ class PendaftaranController extends CI_Controller {
             $result->free_result();
 
             if ($rNum > 0) {
+                $this->session->set_tempdata('nama',$nama,60);
+                $this->session->set_tempdata('no',$no,60);
+                $this->session->set_tempdata('email',$email,60);
+                $this->session->set_tempdata('ttl',$ttl,60);
+                $this->session->set_tempdata('alamat',$alamat,60);
                 $this->session->set_tempdata('pesan', "Email '" . $email . "' sudah pernah didaftarkan!",5);
                 redirect('daftar');
                 return;
@@ -109,6 +151,11 @@ class PendaftaranController extends CI_Controller {
             $result2->free_result();
 
             if ($rNum2 > 0) {
+                $this->session->set_tempdata('nama',$nama,60);
+                $this->session->set_tempdata('no',$no,60);
+                $this->session->set_tempdata('email',$email,60);
+                $this->session->set_tempdata('ttl',$ttl,60);
+                $this->session->set_tempdata('alamat',$alamat,60);
                 $this->session->set_tempdata('pesan', "Nomor HP/WA '" . $no . "' sudah pernah didaftarkan!",5);
                 redirect('daftar');
                 return;
@@ -122,6 +169,11 @@ class PendaftaranController extends CI_Controller {
                 $config['file_name'] = $berkas1;
                 $this->load->library('upload', $config);
                 if (!$this->upload->do_upload('foto')) {
+                    $this->session->set_tempdata('nama',$nama,60);
+                    $this->session->set_tempdata('no',$no,60);
+                    $this->session->set_tempdata('email',$email,60);
+                    $this->session->set_tempdata('ttl',$ttl,60);
+                    $this->session->set_tempdata('alamat',$alamat,60);
                     $this->session->set_tempdata('pesan', $this->upload->display_errors(),5);
                     redirect('daftar');
                 } else {
@@ -135,6 +187,11 @@ class PendaftaranController extends CI_Controller {
                 $this->upload->initialize($config1);
                 if (!$this->upload->do_upload('cv')) {
                     //echo 'Upload gagal';
+                    $this->session->set_tempdata('nama',$nama,60);
+                    $this->session->set_tempdata('no',$no,60);
+                    $this->session->set_tempdata('email',$email,60);
+                    $this->session->set_tempdata('ttl',$ttl,60);
+                    $this->session->set_tempdata('alamat',$alamat,60);
                     $this->session->set_tempdata('pesan', $this->upload->display_errors(),5);
                     redirect('daftar');
                 } else {
@@ -165,6 +222,11 @@ class PendaftaranController extends CI_Controller {
                 }
             } else {
                 $message = "Anda Harus Mengisi form secara lengkap dan mengupload file yang dibutuhkan untuk mendaftar!";
+                $this->session->set_tempdata('nama',$nama,60);
+                $this->session->set_tempdata('no',$no,60);
+                $this->session->set_tempdata('email',$email,60);
+                $this->session->set_tempdata('ttl',$ttl,60);
+                $this->session->set_tempdata('alamat',$alamat,60);
                 $this->session->set_tempdata('pesan', $message,5);
                 redirect('daftar');
             }
