@@ -290,21 +290,21 @@
                     <?php } ?>
                     <div class="wrap-input100 validate-input bg1">
                         <span class="label-input100">Nama Lengkap *</span>
-                        <input class="input100" type="text" name="nama" placeholder="misal: Tarjo Romadhona" required="required">
+                        <input class="input100" type="text" name="nama" placeholder="misal: Tarjo Romadhona" required="required" value="<?= ($this->session->tempdata('nama') != "" ? $this->session->tempdata('nama') : ""); ?>">
                     </div>
 
                     <div class="wrap-input100 validate-input bg1 rs1-wrap-input100">
                         <span class="label-input100">Email Aktif *</span>
-                        <input class="input100" type="text" name="email" placeholder="misal: john.doe@example.com"  required="required">
+                        <input class="input100" type="text" name="email" placeholder="misal: john.doe@example.com"  required="required" value="<?= ($this->session->tempdata('email') != "" ? $this->session->tempdata('email') : ""); ?>">
                     </div>
 
                     <div class="wrap-input100 validate-input bg1 rs1-wrap-input100">
                         <span class="label-input100">Nomor HP/WA Aktif *</span>
-                        <input class="input100" type="text" name="phone" placeholder="misal: 0821xxxxxxxx" required="required" maxlength="13">
+                        <input class="input100" type="text" name="phone" placeholder="misal: 0821xxxxxxxx" required="required" maxlength="13" value="<?= ($this->session->tempdata('no') != "" ? $this->session->tempdata('no') : ""); ?>">
                     </div>
                     <div class="wrap-input100  bg1 rs1-wrap-input100" >
                         <span class="label-input100">Tanggal Lahir *</span>
-                        <input class="input100" type="date" name="tl">
+                        <input class="input100" type="date" name="tl" value="<?= ($this->session->tempdata('ttl') != "" ? $this->session->tempdata('ttl') : ""); ?>">
                     </div>
                     <div class="wrap-input100 validate-input bg1 rs1-wrap-input100" required="required">
                         <span class="label-input100">Jenis Kelamin *</span>
@@ -348,8 +348,8 @@
                     </div>
 
                     <div class="wrap-input100 validate-input bg0 rs1-alert-validate">
-                        <span class="label-input100">Alamat *</span>
-                        <textarea class="input100" name="alamat" placeholder="Alamat Lengkap" required="required"></textarea>
+                        <span class="label-input100">Alamat Lengkap *</span>
+                        <textarea class="input100" name="alamat" placeholder="misal: Jalan Kenangan Nomor 69 RT 14 RW 02 Desa Februari Kecamatan Barbar Kota Meikarta" required="required"><?= ($this->session->tempdata('alamat') != "" ? $this->session->tempdata('alamat') : ""); ?></textarea>
                     </div>
 
                     <div class="wrap-input100 validate-input bg1 rs1-wrap-input100">
@@ -437,6 +437,14 @@
                 });
                 $('input[name=phone]').on('keypress', function (event) {
                     var regex = new RegExp("^[0-9]+$");
+                    var key = String.fromCharCode(!event.charCode ? event.which : event.charCode);
+                    if (!regex.test(key)) {
+                    event.preventDefault();
+                    return false;
+                    }
+                });
+                $('textarea').on('keypress', function (event) {
+                    var regex = new RegExp("^[a-zA-Z\\s'.0-9/]+$");
                     var key = String.fromCharCode(!event.charCode ? event.which : event.charCode);
                     if (!regex.test(key)) {
                     event.preventDefault();

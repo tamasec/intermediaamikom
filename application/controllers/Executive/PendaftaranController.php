@@ -60,16 +60,17 @@ class PendaftaranController extends CI_Controller {
         $path2 = $config2 . $data->cv;
         if (file_exists($path1)) {
             unlink(FCPATH . $path1);
-        } else if (file_exists($path2)) {
-            unlink(FCPATH . $path2);
-        }
+            if (file_exists($path2)) {
+                unlink(FCPATH . $path2);
+            }
+        } 
         var_dump($path1);
         $hapus = $this->DataModel->delete('pendaftaran', 'idDaftar', $id);
         if ($hapus == FALSE) {
             echo "error baen cuk fck";
         } else {
             redirect('executive/pendaftaran');
-            echo "berhasil yeay";
+            //echo "berhasil yeay";
         }
     }
 

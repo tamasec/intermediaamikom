@@ -44,9 +44,9 @@ class PendaftaranController extends CI_Controller {
     }
 
     function daftar() {
-        $this->form_validation->set_rules('nama', 'nama', 'required');
-        $this->form_validation->set_rules('email', 'email', 'required|valid_email');
-        $this->form_validation->set_rules('phone', 'No Handphone', 'required|min_length[11]|max_length[12]');
+        $this->form_validation->set_rules('nama', 'Nama Lengkap', 'required');
+        $this->form_validation->set_rules('email', 'Email', 'required|valid_email');
+        $this->form_validation->set_rules('phone', 'Nomor HP/WA Aktif', 'required|min_length[10]|max_length[13]');
         $this->form_validation->set_rules('tl', 'Tanggal Lahir', 'required');
         $this->form_validation->set_rules('jk', 'Jenis Kelamin', 'required');
         $this->form_validation->set_rules('jurusan', 'Jurusan', 'required');
@@ -74,9 +74,18 @@ class PendaftaranController extends CI_Controller {
         $berkas1 = $idDaftar . "foto";
         $berkas2 = $idDaftar . "cv";
 
+        //echo $nama . "<br>" . $email . "<br>" . $no . "<br>" . $ttl . "<br>" . $jk . "<br>" . $jurusan . "<br>" . $divisi . "<br>" .  $alamat . "<br>";
+        //return;
+
         if ($this->form_validation->run() == FALSE) {
-            $message = "Anda Harus Mengisi form secara lengkap dan mengupload file yang dibutuhkan untuk mendaftar!";
-            $this->session->set_tempdata('pesan',$message,30);
+            //$message = "Anda Harus Mengisi form secara lengkap dan mengupload file yang dibutuhkan untuk mendaftar!";
+            $message = validation_errors();
+            $this->session->set_tempdata('nama',$nama,60);
+            $this->session->set_tempdata('no',$no,60);
+            $this->session->set_tempdata('email',$email,60);
+            $this->session->set_tempdata('ttl',$ttl,60);
+            $this->session->set_tempdata('alamat',$alamat,60);
+            $this->session->set_tempdata('pesan',$message,5);
             redirect('daftar');
         } else {
             $this->db->select('email');
@@ -87,7 +96,7 @@ class PendaftaranController extends CI_Controller {
             $result->free_result();
 
             if ($rNum > 0) {
-                $this->session->set_tempdata('pesan', "Email '" . $email . "' sudah pernah didaftarkan!",30);
+                $this->session->set_tempdata('pesan', "Email '" . $email . "' sudah pernah didaftarkan!",5);
                 redirect('daftar');
                 return;
             }
@@ -100,7 +109,7 @@ class PendaftaranController extends CI_Controller {
             $result2->free_result();
 
             if ($rNum2 > 0) {
-                $this->session->set_tempdata('pesan', "Nomor HP/WA '" . $no . "' sudah pernah didaftarkan!",30);
+                $this->session->set_tempdata('pesan', "Nomor HP/WA '" . $no . "' sudah pernah didaftarkan!",5);
                 redirect('daftar');
                 return;
             }
@@ -113,7 +122,7 @@ class PendaftaranController extends CI_Controller {
                 $config['file_name'] = $berkas1;
                 $this->load->library('upload', $config);
                 if (!$this->upload->do_upload('foto')) {
-                    $this->session->set_tempdata('pesan', $this->upload->display_errors(),30);
+                    $this->session->set_tempdata('pesan', $this->upload->display_errors(),5);
                     redirect('daftar');
                 } else {
                     $this->upload->data();
@@ -126,7 +135,7 @@ class PendaftaranController extends CI_Controller {
                 $this->upload->initialize($config1);
                 if (!$this->upload->do_upload('cv')) {
                     //echo 'Upload gagal';
-                    $this->session->set_tempdata('pesan', $this->upload->display_errors(),30);
+                    $this->session->set_tempdata('pesan', $this->upload->display_errors(),5);
                     redirect('daftar');
                 } else {
                     $this->upload->data();
@@ -156,7 +165,7 @@ class PendaftaranController extends CI_Controller {
                 }
             } else {
                 $message = "Anda Harus Mengisi form secara lengkap dan mengupload file yang dibutuhkan untuk mendaftar!";
-                $this->session->set_tempdata('pesan', $message,30);
+                $this->session->set_tempdata('pesan', $message,5);
                 redirect('daftar');
             }
         }

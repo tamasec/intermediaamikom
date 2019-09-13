@@ -9,12 +9,12 @@
                         <nav>
                             <ul>
                                 <li>
-                                    <a href="./executive">
+                                    <a href="<?= base_url(); ?>executive">
                                         Executive Area
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="./about">
+                                    <a href="<?= base_url(); ?>about">
                                         About Us
                                     </a>
                                 </li>
