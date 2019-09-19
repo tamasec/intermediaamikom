@@ -23,15 +23,17 @@ class PendaftaranController extends CI_Controller {
         $jabatan = $this->session->userdata('data')->idJabatan;
         $divisi = $this->session->userdata('data')->idDivisi;
 
-        $data['jabatan'] = $this->DataModel->readWhere('jabatan', '*', 'idJabatan', $jabatan)->row();
-        $data['divisi'] = $this->DataModel->readWhere('divisi', '*', 'idDivisi', $divisi)->row();
-        $data['pendaftar'] = $this->DataModel->innerJoin('*', 'pendaftaran', 'jurusan', 'pendaftaran.idJurusan=jurusan.idJurusan')->result_array();
+        $data['jabatan'] = $this->DataModel->readWhere('jabatan', '*', 'idJabatan', $jabatan)->row(); // SELECT * FROM jabatan WHERE idJabatan = $jabatan
+        $data['divisi'] = $this->DataModel->readWhere('divisi', '*', 'idDivisi', $divisi)->row(); // SELECT * FROM divisi WHERE idDivisi = $divisi
+        /*$data['pendaftar'] = $this->DataModel->innerJoin('*', 'pendaftaran', 'jurusan', 'pendaftaran.idJurusan=jurusan.idJurusan')->result_array();
         $config = $this->DataModel->page(base_url('executive/pendaftaran'), 3, 5, count($data['pendaftar']));
 //        var_dump($config);
         $data['pagination'] = $this->pagination->initialize($config);
         $data['pagination'] = $this->pagination->create_links();
-        $page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
-        $data['pendaftar'] = $this->DataModel->innerJoinLimit('*', 'pendaftaran', 'jurusan', 'pendaftaran.idJurusan=jurusan.idJurusan',$config['per_page'],$page)->result_array();
+        $page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0; */
+        //$data['pendaftar'] = $this->DataModel->innerJoinLimit('*', 'pendaftaran', 'jurusan', 'pendaftaran.idJurusan=jurusan.idJurusan',$config['per_page'],$page)->result_array();
+        $data['pagination'] = "";
+        $data['pendaftar'] = $this->db->query("SELECT * FROM pendaftaran INNER JOIN jurusan ON pendaftaran.idJurusan=jurusan.idJurusan")->result_array();
 //        var_dump($data['pagination']);
 ////        $data['pendaftar'] = $this->DataModel->read('pendaftaran','*')->result_array();
 ////        foreach ($data['pendaftar'] as $dt) {
