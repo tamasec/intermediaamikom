@@ -164,8 +164,8 @@ class PendaftaranController extends CI_Controller {
             if (!empty($_FILES['foto']['name']) && !empty($_FILES['cv']['name'])) {
                 $file1 = substr(strrchr($_FILES['foto']['name'], '.'), 1);
                 $config['upload_path'] = 'assets/admin/uploads/pendaftar/images';
-                $config['allowed_types'] = 'jpeg|jpg|png';
-                $config['max_size'] = '512';
+                $config['allowed_types'] = '*';
+                //$config['max_size'] = '600';
                 $config['file_name'] = $berkas1;
                 $this->load->library('upload', $config);
                 if (!$this->upload->do_upload('foto')) {
@@ -181,8 +181,8 @@ class PendaftaranController extends CI_Controller {
                 }
                 $file2 = substr(strrchr($_FILES['cv']['name'], '.'), 1);
                 $config1['upload_path'] = 'assets/admin/uploads/pendaftar/cv';
-                $config1['allowed_types'] = 'pdf';
-                $config1['max_size'] = '1048';
+                $config1['allowed_types'] = '*';
+                //$config1['max_size'] = '1100';
                 $config1['file_name'] = $berkas2;
                 $this->upload->initialize($config1);
                 if (!$this->upload->do_upload('cv')) {
